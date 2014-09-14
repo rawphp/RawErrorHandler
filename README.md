@@ -10,12 +10,12 @@
 ### Composer
 RawErrorHandler is available via [Composer/Packagist](https://packagist.org/packages/rawphp/raw-error-handler).
 
-Add `"rawphp/raw-error-handler": "dev-master"` to the require block in your composer.json and then run `composer install`.
+Add `"rawphp/raw-error-handler": "0.1.1"` to the require block in your composer.json and then run `composer install`.
 
 ```json
 {
         "require": {
-            "rawphp/raw-error-handler": "dev-master"
+            "rawphp/raw-error-handler": "0.1.1"
         }
 }
 ```
@@ -23,7 +23,7 @@ Add `"rawphp/raw-error-handler": "dev-master"` to the require block in your comp
 You can also simply run the following from the command line:
 
 ```sh
-composer require rawphp/raw-error-handler "dev-master"
+composer require rawphp/raw-error-handler "0.1.1"
 ```
 
 ### Tarball
