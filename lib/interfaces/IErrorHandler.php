@@ -54,8 +54,11 @@ interface IErrorHandler
      * 
      * @uses set_error_handler     to set the error handler
      * @uses set_exception_handler to set the exception handler
+     * 
+     * @action ON_BEFORE_INIT_ACTION
+     * @action ON_AFTER_INIT_ACTION
      */
-    public function init( $config = array( ) );
+    public function init( $config = array() );
     
     /**
      * Handles PHP errors that may occur.
@@ -66,7 +69,9 @@ interface IErrorHandler
      * @param int    $line    the line number
      * @param array  $context the error context
      * 
-     * @return bool TRUE on success, FALSE on failure
+     * @action ON_HANDLE_ERROR_ACTION
+     * 
+     * @return bool TRUE
      */
     public function handleError( $errno, $message = '', $file = '', $line = '', $context = '' );
     
@@ -75,7 +80,9 @@ interface IErrorHandler
      * 
      * @param \Exception $exception the exception
      * 
-     * @return bool TRUE on success, FALSE on failure
+     * @action ON_HANDLE_EXCEPTION_ACTION
+     * 
+     * @return bool TRUE
      */
     public function handleException( \Exception $exception );
     
@@ -83,6 +90,10 @@ interface IErrorHandler
      * Returns a list of traces for the error or exception.
      * 
      * @param array $trace original debug backtrace
+     * 
+     * @action ON_GET_BACKTRACE_ACTION
+     * 
+     * @filter ON_GET_BACKTRACE_FILTER
      * 
      * @return array processed backtrace
      */

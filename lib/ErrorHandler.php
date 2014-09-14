@@ -55,27 +55,20 @@ class ErrorHandler extends Component implements IErrorHandler
     public $shutdownCallback  = NULL;
     
     /**
-     * Error Handler Constructor.
-     * 
-     * @param array $config configuration array
-     */
-    public function __construct( $config = array( ) )
-    {
-        parent::__construct();
-        
-        $this->init( $config );
-    }
-    
-    /**
      * Initialises the error handler.
      * 
      * @param array $config configuration array
      * 
      * @uses set_error_handler     to set the error handler
      * @uses set_exception_handler to set the exception handler
+     * 
+     * @action ON_BEFORE_INIT_ACTION
+     * @action ON_AFTER_INIT_ACTION
      */
     public function init( $config = array( ) )
     {
+        $this->doAction( self::ON_BEFORE_INIT_ACTION );
+        
         if ( isset( $config[ 'error_callback' ] ) )
         {
             $this->errorCallback = $config[ 'error_callback' ];
@@ -96,8 +89,10 @@ class ErrorHandler extends Component implements IErrorHandler
         set_error_handler( array( $this, 'handleError' ), E_ALL );
         
         set_exception_handler( array( $this, 'handleException' ) );
+        
+        $this->doAction( self::ON_AFTER_INIT_ACTION );
     }
-
+    
     /**
      * Handles PHP errors that may occur.
      * 
@@ -106,6 +101,8 @@ class ErrorHandler extends Component implements IErrorHandler
      * @param string $file    the file name
      * @param int    $line    the line number
      * @param array  $context the error context
+     * 
+     * @action ON_HANDLE_ERROR_ACTION
      * 
      * @return bool TRUE
      */
@@ -140,13 +137,17 @@ class ErrorHandler extends Component implements IErrorHandler
             call_user_func_array( $this->errorCallback, $error );
         }
         
+        $this->doAction( self::ON_HANDLE_ERROR_ACTION );
+        
         return TRUE;
     }
-
+    
     /**
      * Handles exceptions.
      * 
      * @param \Exception $exception the exception
+     * 
+     * @action ON_HANDLE_EXCEPTION_ACTION
      * 
      * @return bool TRUE
      */
@@ -174,6 +175,8 @@ class ErrorHandler extends Component implements IErrorHandler
             call_user_func_array( $this->exceptionCallback, $error );
         }
         
+        $this->doAction( self::ON_HANDLE_EXCEPTION_ACTION );
+        
         return TRUE;
     }
 
@@ -182,6 +185,10 @@ class ErrorHandler extends Component implements IErrorHandler
      * 
      * @param array $trace original debug backtrace
      * 
+     * @action ON_GET_BACKTRACE_ACTION
+     * 
+     * @filter ON_GET_BACKTRACE_FILTER
+     * 
      * @return array processed backtrace
      */
     public function getBacktrace( $trace )
@@ -189,7 +196,7 @@ class ErrorHandler extends Component implements IErrorHandler
         $traces = array();
         
         $i = 1;
-
+        
         foreach ( $trace as $t )
         {
             $traceString = '';
@@ -223,8 +230,19 @@ class ErrorHandler extends Component implements IErrorHandler
 
             $i++;
         }
-
-        return $traces;
+        
+        $this->doAction( self::ON_GET_BACKTRACE_ACTION );
+        
+        return $this->filter( self::ON_GET_BACKTRACE_FILTER, $traces );
     }
-
+    
+    const ON_BEFORE_INIT_ACTION         = 'on_before_init_action';
+    const ON_AFTER_INIT_ACTION          = 'on_after_init_action';
+    
+    const ON_HANDLE_ERROR_ACTION        = 'on_handle_error_action';
+    const ON_HANDLE_EXCEPTION_ACTION    = 'on_handle_exception_action';
+    
+    const ON_GET_BACKTRACE_ACTION       = 'on_get_backtrace_action';
+    
+    const ON_GET_BACKTRACE_FILTER       = 'on_get_backtrace_filter';
 }

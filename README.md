@@ -43,10 +43,10 @@ $config = array(
     'shutdown_callback'  => array( $this, 'shutdownCallback' ),
 );
 
-// instantiate error handler - config array is optional
-$handler = new ErrorHandler( $config );
+// instantiate error handler
+$handler = new ErrorHandler( );
 
-// you can also initialise the handler by calling `init( )`
+// config array is optional
 $handler->init( $config );
 
 // callbacks
@@ -76,5 +76,9 @@ Please submit bug reports, suggestions and pull requests to the [GitHub issue tr
 
 ## Changelog
 
+#### 14-09-2014
+- Implemented the hook system.
+- Removed `init()` call from constructor.
+
 #### 12-09-2014
-- Initial Code Commit
+- Initial Code Commit.
