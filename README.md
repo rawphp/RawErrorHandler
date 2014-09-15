@@ -1,5 +1,7 @@
 # RawErrorHandler - A Simple Error Handler Class for PHP Applications
 
+[![Build Status](https://travis-ci.org/rawphp/RawErrorHandler.svg?branch=master)](https://travis-ci.org/rawphp/RawErrorHandler)
+
 ## Package Features
 - Setup error and exception handlers
 - Setup custom callbacks
