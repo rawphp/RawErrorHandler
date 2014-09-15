@@ -41,7 +41,7 @@ use RawPHP\RawErrorHandler\ErrorHandler;
  * An error handler service.
  * 
  * @category  PHP
- * @package   RawPHP/RawErrorHandler
+ * @package   RawPHP/RawErrorHandler/Tests
  * @author    Tom Kaczocha <tom@rawphp.org>
  * @copyright 2014 Tom Kaczocha
  * @license   http://rawphp.org/license.txt MIT
