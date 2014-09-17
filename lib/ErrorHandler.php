@@ -67,6 +67,8 @@ class ErrorHandler extends Component implements IErrorHandler
      */
     public function init( $config = array( ) )
     {
+        parent::init( $config );
+        
         $this->doAction( self::ON_BEFORE_INIT_ACTION );
         
         if ( isset( $config[ 'error_callback' ] ) )
