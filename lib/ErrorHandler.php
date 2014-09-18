@@ -35,8 +35,8 @@
 
 namespace RawPHP\RawErrorHandler;
 
-use RawPHP\RawErrorHandler\IErrorHandler;
 use RawPHP\RawBase\Component;
+use RawPHP\RawErrorHandler\IErrorHandler;
 
 /**
  * An error handler service.
