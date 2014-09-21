@@ -1,6 +1,8 @@
-# RawErrorHandler - A Simple Error Handler Class for PHP Applications [![Build Status](https://travis-ci.org/rawphp/RawErrorHandler.svg?branch=master)](https://travis-ci.org/rawphp/RawErrorHandler)
+# RawErrorHandler - A Simple Error Handler Class for PHP Applications
 
-[![Latest Stable Version](https://poser.pugx.org/rawphp/raw-error-handler/v/stable.svg)](https://packagist.org/packages/rawphp/raw-error-handler) [![Total Downloads](https://poser.pugx.org/rawphp/raw-error-handler/downloads.svg)](https://packagist.org/packages/rawphp/raw-error-handler) [![Latest Unstable Version](https://poser.pugx.org/rawphp/raw-error-handler/v/unstable.svg)](https://packagist.org/packages/rawphp/raw-error-handler) [![License](https://poser.pugx.org/rawphp/raw-error-handler/license.svg)](https://packagist.org/packages/rawphp/raw-error-handler)
+[![Build Status](https://travis-ci.org/rawphp/RawErrorHandler.svg?branch=master)](https://travis-ci.org/rawphp/RawErrorHandler) [![Coverage Status](https://coveralls.io/repos/rawphp/RawErrorHandler/badge.png)](https://coveralls.io/r/rawphp/RawErrorHandler)
+[![Latest Stable Version](https://poser.pugx.org/rawphp/raw-error-handler/v/stable.svg)](https://packagist.org/packages/rawphp/raw-error-handler) [![Total Downloads](https://poser.pugx.org/rawphp/raw-error-handler/downloads.svg)](https://packagist.org/packages/rawphp/raw-error-handler) 
+[![Latest Unstable Version](https://poser.pugx.org/rawphp/raw-error-handler/v/unstable.svg)](https://packagist.org/packages/rawphp/raw-error-handler) [![License](https://poser.pugx.org/rawphp/raw-error-handler/license.svg)](https://packagist.org/packages/rawphp/raw-error-handler)
 
 ## Package Features
 - Setup error and exception handlers
@@ -76,6 +78,9 @@ This package is licensed under the [MIT](https://github.com/rawphp/RawErrorHandl
 Please submit bug reports, suggestions and pull requests to the [GitHub issue tracker](https://github.com/rawphp/RawErrorHandler/issues).
 
 ## Changelog
+
+#### 22-09-2014
+- Updated to PHP 5.3.
 
 #### 18-09-2014
 - Updated to work with the latest rawphp/rawbase package.
